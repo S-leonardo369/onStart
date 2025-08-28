@@ -7,6 +7,17 @@ form.addEventListener("submit", (event) => {
     const name = document.getElementById("name").value;
     const url = normalizeUrl(document.getElementById("url").value);
 
+
+    if (!name) {
+        alert("Please enter a name.");
+        return;
+    }
+
+    if (!url) {
+        alert("Please enter a url.");
+        return;
+    }
+
     storeData(name, url);
 
 });
@@ -20,9 +31,9 @@ function storeData(name, url) {
         submittedData.push(data);
         chrome.storage.local.set({ submittedData }, () => {
             console.log("Data saved:", data);
-        });
+        })
     });
-
+    makeLi(name, url);
 }
 
 function removeItems(urlToRemove, nameToRemove) {
@@ -40,16 +51,20 @@ function makeList() {
     chrome.storage.local.get("submittedData", (result) => {
         const submittedData = result.submittedData || [];
         for (const item of submittedData) {
-            const li = document.createElement("li");
-            li.addEventListener("click", () => {
-                li.remove();
-                console.log(item.name, item.url);
-                removeItems(item.url, item.name);
-            });
-            li.textContent = `${item.name} - ${item.url}`;
-            document.querySelector("ul").appendChild(li);
+            makeLi(item.name, item.url);
         }
     })
+}
+
+function makeLi(name, url) {
+    const li = document.createElement("li");
+    li.addEventListener("click", () => {
+        li.remove();
+        console.log(name, url);
+        removeItems(url, name);
+    });
+    li.textContent = `${name} - ${url}`;
+    document.querySelector("ul").appendChild(li);
 }
 
 function normalizeUrl(raw) {
