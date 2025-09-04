@@ -1,0 +1,34 @@
+Privacy Policy — onStart Extension
+
+Last updated: 2025-09-04
+
+1. Overview
+Auto Start Extension allows users to save website names and URLs and automatically open those saved URLs in new browser tabs when Chrome starts. The extension is designed to operate locally within the user’s browser.
+
+2. Data Collected
+The extension only stores user-entered data: a label/name, the site URL, and a small metadata field (e.g., chosen action). No other user data (browsing history, cookies, device identifiers) is collected by the extension.
+
+3. How Data Is Stored
+Data is stored locally in the browser using chrome.storage.local. This storage persists across browser restarts and is scoped to the extension and the Chrome profile. Data is not transmitted or backed up to our servers.
+
+4. How Data Is Used
+The stored URLs are used solely to open browser tabs (via chrome.tabs.create()), typically at Chrome startup or when the user triggers opening. The tabs permission is used only to create new tabs for the URLs the user saved; it is not used to inspect or monitor other tabs.
+
+5. Sharing and Third Parties
+We do not share your stored data with third parties and do not use analytics that would collect your saved data. If we ever plan to integrate third-party services, we will update this policy and obtain explicit consent where required.
+
+6. Retention and Deletion
+You control your data. Use the extension popup UI to remove entries. Uninstalling the extension removes its stored data from your Chrome profile. If you need assistance deleting data, contact the developer.
+
+7. Security
+Data is stored locally; we recommend securing your device and Chrome profile. We do not transmit saved entries over the network.
+
+8. Children
+The extension is not directed at children. If you believe a child has provided personal information, contact the developer to request removal.
+
+9. Contact
+Email: syedleonardo@gmail.com
+GitHub: https://github.com/S-leonardo369/onStart (optional)
+
+10. Changes to this Policy
+We may update this policy; the “Last updated” date will reflect changes. Material changes will be posted on this page.
